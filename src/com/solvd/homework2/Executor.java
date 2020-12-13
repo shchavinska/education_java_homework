@@ -1,6 +1,6 @@
-package com.solvd.workWithClass;
+package com.solvd.homework2;
 
-import com.solvd.workWithClass.ship.*;
+import com.solvd.homework2.ship.*;
 
 public class Executor {
     public static void main(String[] args){

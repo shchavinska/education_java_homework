@@ -1,4 +1,4 @@
-package com.solvd.workWithClass.ship;
+package com.solvd.homework2.ship;
 
 public class MotorShip extends Ship {
     private String motorType;
