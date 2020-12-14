@@ -13,5 +13,4 @@ public class Submarine extends MotorShip implements Shooting{
     public Submarine(String name){
         super(name);
     }
-
 }

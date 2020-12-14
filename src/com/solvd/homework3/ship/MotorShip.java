@@ -26,5 +26,4 @@ public class MotorShip extends Ship{
         super.printFields();
         System.out.println("motorType: " + motorType);
     }
-
 }

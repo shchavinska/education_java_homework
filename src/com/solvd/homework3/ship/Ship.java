@@ -4,7 +4,7 @@ public abstract class Ship implements Floating {
 
     @Override
     public void swim() {
-        System.out.println("All ship can swim");
+        System.out.println(getName() + " can swim!!!");
     }
 
     private String name;
@@ -58,6 +58,7 @@ public abstract class Ship implements Floating {
     }
 
     public void printFields() {
+        System.out.println("----" + this.getClass().getSimpleName() + "----");
         System.out.println("Name: " + name);
         System.out.println("Weight: " + weight);
         System.out.println("yearOfCreation: " + yearOfCreation);
