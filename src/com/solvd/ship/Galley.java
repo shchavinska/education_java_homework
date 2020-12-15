@@ -1,4 +1,4 @@
-package com.solvd.homework3.ship;
+package com.solvd.ship;
 
 public class Galley extends TwinMasted{
     public Galley(){
