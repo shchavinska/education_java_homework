@@ -1,7 +1,6 @@
-package com.solvd.homework2.ship;
+package com.solvd.ship;
 
 public class Rowboat extends Ship{
-
     private int passAmount;
 
     public Rowboat(){

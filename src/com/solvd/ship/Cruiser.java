@@ -1,4 +1,4 @@
-package com.solvd.homework2.ship;
+package com.solvd.ship;
 
 public class Cruiser extends MotorShip{
 
@@ -9,5 +9,4 @@ public class Cruiser extends MotorShip{
     public Cruiser(String name){
         super(name);
     }
-
 }

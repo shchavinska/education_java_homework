@@ -1,6 +1,6 @@
-package com.solvd.homework2.ship;
+package com.solvd.ship;
 
-public class MotorShip extends Ship {
+public class MotorShip extends Ship{
     private String motorType;
 
     public MotorShip(){
@@ -26,5 +26,4 @@ public class MotorShip extends Ship {
         super.printFields();
         System.out.println("motorType: " + motorType);
     }
-
 }
