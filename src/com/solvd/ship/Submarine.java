@@ -8,9 +8,11 @@ public class Submarine extends MotorShip implements Shooting{
 
     public Submarine(){
         super();
+        setMotorType(MOTOR_TYPE_FUEL);
     }
 
     public Submarine(String name){
         super(name);
+        setMotorType(MOTOR_TYPE_FUEL);
     }
 }
