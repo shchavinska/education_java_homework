@@ -18,14 +18,17 @@ public class Rowboat extends Ship{
     }
 
     public void setPassAmount(int passAmount){
+
         this.passAmount = passAmount;
     }
 
     public int getPasAmount(){
+
         return passAmount;
     }
 
     public void setPaddleAmount(int paddleAmount){
+
         this.paddleAmount = paddleAmount;
     }
 
