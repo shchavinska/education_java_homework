@@ -23,12 +23,10 @@ public class Rowboat extends Ship{
     }
 
     public int getPasAmount(){
-
         return passAmount;
     }
 
     public void setPaddleAmount(int paddleAmount){
-
         this.paddleAmount = paddleAmount;
     }
 
@@ -42,5 +40,4 @@ public class Rowboat extends Ship{
         System.out.println("passAmount: " + passAmount);
         System.out.println("paddleAmount: " + paddleAmount);
     }
-
 }

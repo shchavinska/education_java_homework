@@ -21,8 +21,5 @@ public class CanoeToRent {
             System.out.println(pier);
             canoe.printFields();
         }
-
     }
-
-
 }

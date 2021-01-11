@@ -1,11 +1,18 @@
 package com.solvd;
 
-import com.solvd.ship.*;
+import com.solvd.ship.Canoe;
+import com.solvd.ship.CanoeToBuy;
+import com.solvd.ship.CanoeToRent;
+import com.solvd.ship.InputExceptions;
+import com.solvd.ship.MotorShip;
+import com.solvd.ship.Rowboat;
+import com.solvd.ship.SailingShip;
+import com.solvd.ship.Seaport;
+import com.solvd.ship.Submarine;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 
 public class Executor {
@@ -29,30 +36,30 @@ public class Executor {
                     rentCanoe(canoeToRent);
                     break;
                 default:
-                    throw new InputExeptions("No such options.");
+                    throw new InputExceptions("No such options.");
             }
-        }catch (InputExeptions e){
+        }catch (InputExceptions e){
             System.err.println("Input incorrect: " + e.getMessage());
         }
     }
 
-    public static int intInput() throws InputExeptions {
+    public static int intInput() throws InputExceptions {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             return Integer.parseInt(reader.readLine());
         }catch (IOException e){
-            throw new InputExeptions(e.getMessage());
+            throw new InputExceptions(e.getMessage());
         }catch (NumberFormatException e){
-            throw new InputExeptions("Can't parse integer.");
+            throw new InputExceptions("Can't parse integer.");
         }
     }
 
-    public static String strInput() throws InputExeptions{
+    public static String strInput() throws InputExceptions {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             return reader.readLine().toLowerCase();
         } catch (IOException e) {
-            throw new InputExeptions(e.getMessage());
+            throw new InputExceptions(e.getMessage());
         }
     }
 
@@ -131,7 +138,7 @@ public class Executor {
         port.swimEveryone();
     }
 
-    public static void buyCanoe (CanoeToBuy canoeToBuy) throws InputExeptions {
+    public static void buyCanoe (CanoeToBuy canoeToBuy) throws InputExceptions {
         System.out.print("Do you want to bye canoe: (yes/no) ");
         String answer = strInput();
 
@@ -145,11 +152,11 @@ public class Executor {
                 System.out.print("Okay, You just buy canoe " + answer2 + "!!!");
             }
             else {
-                throw new InputExeptions("Can't found canoe " + answer2);
+                throw new InputExceptions("Can't found canoe " + answer2);
             }
         }
         else {
-            throw new InputExeptions("Sorry, I don't know what you mean.");
+            throw new InputExceptions("Sorry, I don't know what you mean.");
         }
     }
 
