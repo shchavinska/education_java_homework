@@ -13,12 +13,14 @@ public class CanoeToBuy{
         return listOfCanoeToBuy;
     }
 
-    public void removeCanoe(String name){
+    public boolean removeCanoe(String name){
         for (Canoe canoe : listOfCanoeToBuy){
             if (name.equals(canoe.getName())){
                 listOfCanoeToBuy.remove(canoe);
+                return  true;
             }
         }
+        return false;
     }
 
     public void printEveryCanoeToBuy() {
