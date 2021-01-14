@@ -1,12 +1,13 @@
 package com.solvd.ship;
 
+
 public class MotorShip extends Ship{
+
     private String motorType;
     public static final String MOTOR_TYPE_UNKNOWN = "Unknown";
     public static final String MOTOR_TYPE_STEAM = "Steam";
     public static final String MOTOR_TYPE_ELECTRIC = "Electric";
     public static final String MOTOR_TYPE_FUEL = "Fuel";
-
 
     public MotorShip(){
         super();

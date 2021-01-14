@@ -3,7 +3,7 @@ package com.solvd;
 import com.solvd.ship.Canoe;
 import com.solvd.ship.CanoeToBuy;
 import com.solvd.ship.CanoeToRent;
-import com.solvd.ship.InputExceptions;
+import com.solvd.exceptions.InputExceptions;
 import com.solvd.ship.MotorShip;
 import com.solvd.ship.Rowboat;
 import com.solvd.ship.SailingShip;

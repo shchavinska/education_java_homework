@@ -1,7 +1,7 @@
 package com.solvd.ship;
 
-public class SailingShip extends Ship{
 
+public class SailingShip extends Ship{
     private int sailAmount;
 
     public SailingShip(){

@@ -1,6 +1,8 @@
 package com.solvd.ship;
 
+
 public class Rowboat extends Ship{
+
     private int passAmount;
     private int paddleAmount;
     private static final int DEFAULT_PADDLE_AMOUNT = 4;
@@ -18,7 +20,6 @@ public class Rowboat extends Ship{
     }
 
     public void setPassAmount(int passAmount){
-
         this.passAmount = passAmount;
     }
 

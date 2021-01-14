@@ -2,7 +2,9 @@ package com.solvd.ship;
 
 import java.util.LinkedList;
 
+
 public class CanoeToBuy{
+
     LinkedList<Canoe> listOfCanoeToBuy = new LinkedList<>();
 
     public void addCanoe(Canoe canoe){

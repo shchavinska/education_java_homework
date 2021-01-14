@@ -1,5 +1,6 @@
 package com.solvd.ship;
 
+
 public class Submarine extends MotorShip implements Shooting{
     @Override
     public void shoot() {

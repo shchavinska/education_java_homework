@@ -1,6 +1,7 @@
 package com.solvd.ship;
 import java.util.ArrayList;
 
+
 public class Seaport {
     ArrayList<Ship> port = new ArrayList<>();
 
@@ -13,15 +14,13 @@ public class Seaport {
     }
 
     public void printEveryoneInPort() {
-        for (int i = 0; i < port.size(); i++) {
-            Ship ship = port.get(i);
+        for (Ship ship: port) {
             ship.printFields();
         }
     }
 
     public void swimEveryone() {
-        for (int i = 0; i < port.size(); i++) {
-            Ship ship = port.get(i);
+        for (Ship ship: port) {
             ship.swim();
         }
     }

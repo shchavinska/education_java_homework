@@ -1,9 +1,10 @@
 package com.solvd.ship;
 
 import java.util.HashMap;
-import java.util.Map;
+
 
 public class CanoeToRent {
+
     HashMap<String, Canoe> listOfCanoeToRent = new HashMap<>();
 
     public void addCanoe(String pier, Canoe canoe){
