@@ -1,15 +1,16 @@
 package com.solvd.ship;
 
+
 public abstract class Ship implements Floating {
+
+    private String name;
+    private int weight;
+    protected int yearOfCreation;
 
     @Override
     public void swim() {
         System.out.println(getName() + " can swim!!!");
     }
-
-    private String name;
-    private int weight;
-    protected int yearOfCreation;
 
     public Ship(){
         name = "Unnamed";
@@ -64,4 +65,3 @@ public abstract class Ship implements Floating {
         System.out.println("yearOfCreation: " + yearOfCreation);
     }
 }
-

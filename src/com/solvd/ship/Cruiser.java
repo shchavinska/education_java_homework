@@ -1,5 +1,6 @@
 package com.solvd.ship;
 
+
 public class Cruiser extends MotorShip{
 
     public Cruiser(){

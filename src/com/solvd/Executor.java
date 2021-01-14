@@ -3,6 +3,7 @@ package com.solvd;
 import com.solvd.ship.Canoe;
 import com.solvd.ship.CanoeToBuy;
 import com.solvd.ship.CanoeToRent;
+import com.solvd.exceptions.InputExceptions;
 import com.solvd.ship.MotorShip;
 import com.solvd.ship.Rowboat;
 import com.solvd.ship.SailingShip;
@@ -10,30 +11,55 @@ import com.solvd.ship.Seaport;
 import com.solvd.ship.Submarine;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 
 public class Executor {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         System.out.println("======Welcome to the Seaport======\n\tPlease tell me how can I help you:");
         System.out.println("Press 1 - for see everyone in port.\nPress 2 - for buy a canoe.\nPress 3 - for rent a canoe.");
         System.out.print("Please make you choice: ");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int selection = Integer.parseInt(reader.readLine());
+        try {
+            int selection = intInput();
+            switch (selection) {
+                case 1:
+                    createPort();
+                    break;
+                case 2:
+                    CanoeToBuy canoeToBuy = createCanoeToBuy();
+                    canoeToBuy.printEveryCanoeToBuy();
+                    buyCanoe(canoeToBuy);
+                    break;
+                case 3:
+                    CanoeToRent canoeToRent = createCanoeToRent();
+                    rentCanoe(canoeToRent);
+                    break;
+                default:
+                    throw new InputExceptions("No such options.");
+            }
+        }catch (InputExceptions e){
+            System.err.println("Input incorrect: " + e.getMessage());
+        }
+    }
 
-        switch (selection) {
-            case 1:
-                createPort();
-                break;
-            case 2:
-                CanoeToBuy canoeToBuy = createCanoeToBuy();
-                canoeToBuy.printEveryCanoeToBuy();
-                buyCanoe(canoeToBuy);
-                break;
-            case 3:
-                CanoeToRent canoeToRent = createCanoeToRent();
-                rentCanoe(canoeToRent);
-                break;
+    public static int intInput() throws InputExceptions {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            return Integer.parseInt(reader.readLine());
+        }catch (IOException e){
+            throw new InputExceptions(e.getMessage());
+        }catch (NumberFormatException e){
+            throw new InputExceptions("Can't parse integer.");
+        }
+    }
+
+    public static String strInput() throws InputExceptions {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            return reader.readLine().toLowerCase();
+        } catch (IOException e) {
+            throw new InputExceptions(e.getMessage());
         }
     }
 
@@ -112,27 +138,29 @@ public class Executor {
         port.swimEveryone();
     }
 
-    public static void buyCanoe (CanoeToBuy canoeToBuy) throws Exception{
+    public static void buyCanoe (CanoeToBuy canoeToBuy) throws InputExceptions {
         System.out.print("Do you want to bye canoe: (yes/no) ");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String answer = reader.readLine().toLowerCase();
+        String answer = strInput();
 
         if (answer.equals("no")){
             System.out.print("Okay.");
         }
         else if (answer.equals("yes")){
             System.out.print("Which canoe do you want to buy: ");
-            BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
-            String answer2 = reader2.readLine();
-            canoeToBuy.removeCanoe(answer2);
-            System.out.print("Okay, You just buy canoe " + answer2 + "!!!");
+            String answer2 = strInput();
+            if (canoeToBuy.removeCanoe(answer2)) {
+                System.out.print("Okay, You just buy canoe " + answer2 + "!!!");
+            }
+            else {
+                throw new InputExceptions("Can't found canoe " + answer2);
+            }
         }
         else {
-            System.out.print("Sorry, I don't know what you mean.");
+            throw new InputExceptions("Sorry, I don't know what you mean.");
         }
     }
 
-    public static void rentCanoe (CanoeToRent canoeToRent) throws Exception{
+    public static void rentCanoe (CanoeToRent canoeToRent) {
         System.out.println("You decided to rent canoe. This is name of canoe what we have: ");
         canoeToRent.printEveryCanoeToRent();
         System.out.print("Please choose one and contact the administration of port.");
