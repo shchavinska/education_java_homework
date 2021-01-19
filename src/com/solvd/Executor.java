@@ -1,18 +1,22 @@
 package com.solvd;
 
 import com.solvd.ship.Canoe;
-import com.solvd.ship.CanoeToBuy;
-import com.solvd.ship.CanoeToRent;
+import com.solvd.port.CanoeToBuy;
+import com.solvd.port.CanoeToRent;
 import com.solvd.exceptions.InputExceptions;
 import com.solvd.ship.MotorShip;
 import com.solvd.ship.Rowboat;
 import com.solvd.ship.SailingShip;
-import com.solvd.ship.Seaport;
+import com.solvd.port.Seaport;
 import com.solvd.ship.Submarine;
+import com.solvd.utils.ReadingFromFile;
+import com.solvd.utils.WriteReadProperties;
+import com.solvd.utils.WritingToFile;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 
 public class Executor {
@@ -20,6 +24,8 @@ public class Executor {
         System.out.println("======Welcome to the Seaport======\n\tPlease tell me how can I help you:");
         System.out.println("Press 1 - for see everyone in port.\nPress 2 - for buy a canoe.\nPress 3 - for rent a canoe.");
         System.out.print("Please make you choice: ");
+
+
         try {
             int selection = intInput();
             switch (selection) {
@@ -57,7 +63,7 @@ public class Executor {
     public static String strInput() throws InputExceptions {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            return reader.readLine().toLowerCase();
+            return reader.readLine();
         } catch (IOException e) {
             throw new InputExceptions(e.getMessage());
         }
@@ -148,8 +154,13 @@ public class Executor {
         else if (answer.equals("yes")){
             System.out.print("Which canoe do you want to buy: ");
             String answer2 = strInput();
-            if (canoeToBuy.removeCanoe(answer2)) {
-                System.out.print("Okay, You just buy canoe " + answer2 + "!!!");
+            Canoe boughtCanoe = canoeToBuy.removeCanoe(answer2);
+            if (boughtCanoe!=null) {
+                System.out.println("Okay, You just buy canoe " + answer2 + "!!!");
+                WritingToFile wasBoughtWrite = new WritingToFile();
+                wasBoughtWrite.writeToFile("boughtCanoe.txt", "Canoe " + boughtCanoe.getName() + " was bought.");
+                ReadingFromFile wasBoughtRead = new ReadingFromFile();
+                System.out.println(wasBoughtRead.readFromFile("boughtCanoe.txt"));
             }
             else {
                 throw new InputExceptions("Can't found canoe " + answer2);
@@ -163,6 +174,15 @@ public class Executor {
     public static void rentCanoe (CanoeToRent canoeToRent) {
         System.out.println("You decided to rent canoe. This is name of canoe what we have: ");
         canoeToRent.printEveryCanoeToRent();
-        System.out.print("Please choose one and contact the administration of port.");
+        System.out.println("Please choose one and contact the administration of port.");
+
+        WriteReadProperties canoeToRentPort = new WriteReadProperties();
+
+        for (HashMap.Entry<String, Canoe> entry : canoeToRent.getListOfCanoe().entrySet()) {
+            String pier = entry.getKey();
+            Canoe canoe = entry.getValue();
+            canoeToRentPort.setValueToProperties("canoeToRentPort.txt", pier, canoe.getName());
+        }
+        System.out.println(canoeToRentPort.getValueFromProperties("canoeToRentPort.txt", "Pier 1"));
     }
 }
