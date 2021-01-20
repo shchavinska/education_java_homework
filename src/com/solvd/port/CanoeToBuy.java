@@ -1,4 +1,6 @@
-package com.solvd.ship;
+package com.solvd.port;
+
+import com.solvd.ship.Canoe;
 
 import java.util.LinkedList;
 
@@ -15,14 +17,16 @@ public class CanoeToBuy{
         return listOfCanoeToBuy;
     }
 
-    public boolean removeCanoe(String name){
+    public Canoe removeCanoe(String name){
+        Canoe canoe1;
         for (Canoe canoe : listOfCanoeToBuy){
             if (name.equals(canoe.getName())){
+                canoe1 = canoe;
                 listOfCanoeToBuy.remove(canoe);
-                return  true;
+                return  canoe1;
             }
         }
-        return false;
+        return null;
     }
 
     public void printEveryCanoeToBuy() {

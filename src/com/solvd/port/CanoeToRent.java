@@ -1,4 +1,6 @@
-package com.solvd.ship;
+package com.solvd.port;
+
+import com.solvd.ship.Canoe;
 
 import java.util.HashMap;
 
