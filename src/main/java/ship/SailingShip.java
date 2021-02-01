@@ -1,6 +1,9 @@
 package ship;
 
+import org.apache.log4j.Logger;
+
 public class SailingShip extends Ship{
+    private final static Logger LOGGER = Logger.getLogger(SailingShip.class);
     private int sailAmount;
 
     public SailingShip(){
@@ -24,6 +27,6 @@ public class SailingShip extends Ship{
     @Override
     public void printFields() {
         super.printFields();
-        System.out.println("sailAmount: " + sailAmount);
+        LOGGER.info("sailAmount: " + sailAmount);
     }
 }

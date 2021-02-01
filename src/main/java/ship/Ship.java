@@ -1,6 +1,9 @@
 package ship;
 
+import org.apache.log4j.Logger;
+
 public abstract class Ship implements Floating {
+    private final static Logger LOGGER = Logger.getLogger(Ship.class);
 
     private String name;
     private int weight;
@@ -8,7 +11,7 @@ public abstract class Ship implements Floating {
 
     @Override
     public void swim() {
-        System.out.println(getName() + " can swim!!!");
+        LOGGER.info(getName() + " can swim!!!");
     }
 
     public Ship(){
@@ -58,9 +61,9 @@ public abstract class Ship implements Floating {
     }
 
     public void printFields() {
-        System.out.println("----" + this.getClass().getSimpleName() + "----");
-        System.out.println("Name: " + name);
-        System.out.println("Weight: " + weight);
-        System.out.println("yearOfCreation: " + yearOfCreation);
+        LOGGER.info("----" + this.getClass().getSimpleName() + "----");
+        LOGGER.info("Name: " + name);
+        LOGGER.info("Weight: " + weight);
+        LOGGER.info("yearOfCreation: " + yearOfCreation);
     }
 }

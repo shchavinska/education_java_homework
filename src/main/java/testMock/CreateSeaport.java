@@ -6,8 +6,14 @@ import ship.Rowboat;
 import ship.SailingShip;
 import ship.Submarine;
 
+import org.apache.log4j.Logger;
+
 public class CreateSeaport {
+
+    private final static Logger LOGGER = Logger.getLogger(CreateSeaport.class);
+
     public static void createPort () {
+        LOGGER.info("Seaport created");
 
         Seaport port = new Seaport();
 
@@ -45,6 +51,5 @@ public class CreateSeaport {
         port.addShipToPort(motorShipBarry);
 
         port.printEveryoneInPort();
-        port.swimEveryone();
     }
 }

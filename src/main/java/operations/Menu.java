@@ -7,12 +7,17 @@ import exceptions.InputExceptions;
 import port.CanoeToBuy;
 import port.CanoeToRent;
 
+import org.apache.log4j.Logger;
+
 public class Menu {
+    private final static Logger LOGGER = Logger.getLogger(Menu.class);
+
     public void show(){
+        LOGGER.info("Program started");
+
         System.out.println("======Welcome to the Seaport======\n\tPlease tell me how can I help you:");
         System.out.println("Press 1 - for see everyone in port.\nPress 2 - for buy a canoe.\nPress 3 - for rent a canoe.");
-        System.out.print("Please make you choice: ");
-
+        System.out.println("Please make you choice: ");
 
         try {
             int selection = Input.inputInt();
@@ -33,7 +38,7 @@ public class Menu {
                     throw new InputExceptions("No such options.");
             }
         }catch (InputExceptions e){
-            System.err.println("Input incorrect: " + e.getMessage());
+            LOGGER.error("Input incorrect: " + e.getMessage());
         }
     }
 }

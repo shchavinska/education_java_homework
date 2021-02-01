@@ -3,9 +3,13 @@ package testMock;
 import port.CanoeToBuy;
 import ship.Canoe;
 
+import org.apache.log4j.Logger;
+
 public class CreateCanoeToBuy {
+    private final static Logger LOGGER = Logger.getLogger(CreateCanoeToBuy.class);
 
     public static CanoeToBuy createCanoeToBuy (){
+        LOGGER.info("Created canoe to buy");
 
         CanoeToBuy canoeToBuy = new CanoeToBuy();
 

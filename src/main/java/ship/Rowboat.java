@@ -1,6 +1,10 @@
 package ship;
 
+import org.apache.log4j.Logger;
+
 public class Rowboat extends Ship{
+
+    private final static Logger LOGGER = Logger.getLogger(Rowboat.class);
 
     private int passAmount;
     private int paddleAmount;
@@ -37,7 +41,7 @@ public class Rowboat extends Ship{
     @Override
     public void printFields() {
         super.printFields();
-        System.out.println("passAmount: " + passAmount);
-        System.out.println("paddleAmount: " + paddleAmount);
+        LOGGER.info("passAmount: " + passAmount);
+        LOGGER.info("paddleAmount: " + paddleAmount);
     }
 }
