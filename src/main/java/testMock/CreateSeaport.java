@@ -5,12 +5,14 @@ import ship.MotorShip;
 import ship.Rowboat;
 import ship.SailingShip;
 import ship.Submarine;
+import utils.JsonConverter;
 
 import org.apache.log4j.Logger;
 
 public class CreateSeaport {
 
     private final static Logger LOGGER = Logger.getLogger(CreateSeaport.class);
+    static JsonConverter jsonAction = new JsonConverter();
 
     public static void createPort () {
         LOGGER.info("Seaport created");
@@ -51,5 +53,6 @@ public class CreateSeaport {
         port.addShipToPort(motorShipBarry);
 
         port.printEveryoneInPort();
+        jsonAction.toJsonFile(port, "ship.json");
     }
 }
