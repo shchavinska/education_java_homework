@@ -1,7 +1,9 @@
 package ship;
+import com.fasterxml.jackson.annotation.*;
 
 import org.apache.log4j.Logger;
 
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include= JsonTypeInfo.As.PROPERTY, property="@type")
 public abstract class Ship implements Floating {
     private final static Logger LOGGER = Logger.getLogger(Ship.class);
 

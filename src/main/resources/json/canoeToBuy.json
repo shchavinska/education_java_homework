@@ -1,0 +1,28 @@
+{
+  "listOfCanoe":[
+    {
+      "@type":"Canoe",
+      "name":"Joe",
+      "weight":0,
+      "yearOfCreation":0,
+      "passAmount":2,
+      "paddleAmount":2
+    },
+    {
+      "@type":"Canoe",
+      "name":"Boo",
+      "weight":0,
+      "yearOfCreation":0,
+      "passAmount":3,
+      "paddleAmount":2
+    },
+    {
+      "@type":"Canoe",
+      "name":"Jesica",
+      "weight":0,
+      "yearOfCreation":0,
+      "passAmount":4,
+      "paddleAmount":2
+    }
+  ]
+}

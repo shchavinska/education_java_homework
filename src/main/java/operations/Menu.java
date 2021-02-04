@@ -1,11 +1,8 @@
 package operations;
 
-import testMock.CreateCanoeToBuy;
-import testMock.CreateCanoeToRent;
-import testMock.CreateSeaport;
+import port.*;
+import testMock.DataFactory;
 import exceptions.InputExceptions;
-import port.CanoeToBuy;
-import port.CanoeToRent;
 
 import org.apache.log4j.Logger;
 
@@ -23,15 +20,16 @@ public class Menu {
             int selection = Input.inputInt();
             switch (selection) {
                 case 1:
-                    CreateSeaport.createPort();
+                    Seaport port = DataFactory.createPort();
+                    port.printEveryoneInPort();
                     break;
                 case 2:
-                    CanoeToBuy canoeToBuy = CreateCanoeToBuy.createCanoeToBuy();
-                    canoeToBuy.printEveryCanoeToBuy();
+                    CanoeToBuy canoeToBuy = DataFactory.createCanoeToBuy();
+                    canoeToBuy.printEveryCanoe();
                     BuyCanoe.buyCanoe(canoeToBuy);
                     break;
                 case 3:
-                    CanoeToRent canoeToRent = CreateCanoeToRent.createCanoeToRent();
+                    CanoeToRent canoeToRent = DataFactory.createCanoeToRent();
                     RentCanoe.rentCanoe(canoeToRent);
                     break;
                 default:
@@ -39,6 +37,8 @@ public class Menu {
             }
         }catch (InputExceptions e){
             LOGGER.error("Input incorrect: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

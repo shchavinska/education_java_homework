@@ -13,7 +13,7 @@ public class RentCanoe {
 
     public static void rentCanoe (CanoeToRent canoeToRent) {
         LOGGER.info("You decided to rent canoe. This is name of canoe what we have: ");
-        canoeToRent.printEveryCanoeToRent();
+        canoeToRent.printEveryCanoe();
         LOGGER.info("Please choose one and contact the administration of port.");
 
         WriteReadProperties canoeToRentPort = new WriteReadProperties();

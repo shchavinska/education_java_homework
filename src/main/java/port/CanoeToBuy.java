@@ -9,22 +9,22 @@ import org.apache.log4j.Logger;
 public class CanoeToBuy {
     private final static Logger LOGGER = Logger.getLogger(CanoeToBuy.class);
 
-    LinkedList<Canoe> listOfCanoeToBuy = new LinkedList<>();
+    LinkedList<Canoe> listOfCanoe = new LinkedList<>();
 
     public void addCanoe(Canoe canoe){
-        listOfCanoeToBuy.add(canoe);
+        listOfCanoe.add(canoe);
     }
 
     public LinkedList<Canoe> getListOfCanoe(){
-        return listOfCanoeToBuy;
+        return listOfCanoe;
     }
 
     public Canoe removeCanoe(String name){
         Canoe canoe1;
-        for (Canoe canoe : listOfCanoeToBuy){
+        for (Canoe canoe : listOfCanoe){
             if (name.equals(canoe.getName())){
                 canoe1 = canoe;
-                listOfCanoeToBuy.remove(canoe);
+                listOfCanoe.remove(canoe);
                 LOGGER.info("Canoe was removed");
                 return  canoe1;
             }
@@ -33,9 +33,9 @@ public class CanoeToBuy {
         return null;
     }
 
-    public void printEveryCanoeToBuy() {
+    public void printEveryCanoe() {
         LOGGER.info("Printed every canoe to buy");
-        for (Canoe canoe : listOfCanoeToBuy){
+        for (Canoe canoe : listOfCanoe){
             canoe.printFields();
         }
     }

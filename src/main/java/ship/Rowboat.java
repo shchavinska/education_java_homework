@@ -26,7 +26,7 @@ public class Rowboat extends Ship{
         this.passAmount = passAmount;
     }
 
-    public int getPasAmount(){
+    public int getPassAmount(){
         return passAmount;
     }
 
