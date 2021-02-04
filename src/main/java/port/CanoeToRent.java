@@ -4,23 +4,27 @@ import ship.Canoe;
 
 import java.util.HashMap;
 
-public class CanoeToRent {
+import org.apache.log4j.Logger;
 
-    HashMap<String, Canoe> listOfCanoeToRent = new HashMap<>();
+public class CanoeToRent {
+    private final static Logger LOGGER = Logger.getLogger(CanoeToRent.class);
+
+    HashMap<String, Canoe> listOfCanoe = new HashMap<>();
 
     public void addCanoe(String pier, Canoe canoe){
-        listOfCanoeToRent.put(pier, canoe);
+        listOfCanoe.put(pier, canoe);
     }
 
     public HashMap<String, Canoe> getListOfCanoe(){
-        return listOfCanoeToRent;
+        return listOfCanoe;
     }
 
-    public void printEveryCanoeToRent() {
-        for (HashMap.Entry<String, Canoe> entry : listOfCanoeToRent.entrySet()) {
+    public void printEveryCanoe() {
+        LOGGER.info("Printed every canoe to rent");
+        for (HashMap.Entry<String, Canoe> entry : listOfCanoe.entrySet()) {
             String pier = entry.getKey();
             Canoe canoe = entry.getValue();
-            System.out.println(pier);
+            LOGGER.info(pier);
             canoe.printFields();
         }
     }

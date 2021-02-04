@@ -1,0 +1,28 @@
+{
+  "listOfCanoe":{
+    "Pier 2":{
+      "@type":"Canoe",
+      "name":"Magie",
+      "weight":0,
+      "yearOfCreation":0,
+      "passAmount":0,
+      "paddleAmount":2
+    },
+    "Pier 3":{
+      "@type":"Canoe",
+      "name":"Enid",
+      "weight":0,
+      "yearOfCreation":0,
+      "passAmount":0,
+      "paddleAmount":2
+    },
+    "Pier 1":{
+      "@type":"Canoe",
+      "name":"Lili",
+      "weight":0,
+      "yearOfCreation":0,
+      "passAmount":0,
+      "paddleAmount":2
+    }
+  }
+}

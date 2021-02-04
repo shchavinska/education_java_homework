@@ -1,6 +1,9 @@
 package ship;
 
+import org.apache.log4j.Logger;
+
 public class MotorShip extends Ship{
+    private final static Logger LOGGER = Logger.getLogger(MotorShip.class);
 
     private String motorType;
     public static final String MOTOR_TYPE_UNKNOWN = "Unknown";
@@ -29,25 +32,25 @@ public class MotorShip extends Ship{
     @Override
     public void printFields() {
         super.printFields();
-        System.out.println("motorType: " + motorType);
+        LOGGER.info("motorType: " + motorType);
     }
 
     @Override
     public void swim(){
-        System.out.print(getName() + ": ");
+        LOGGER.info(getName() + ": ");
         switch (this.motorType){
             case MOTOR_TYPE_STEAM:
-                System.out.println("Chuh-chuh");
+                LOGGER.info("Chuh-chuh");
                 break;
             case MOTOR_TYPE_ELECTRIC:
-                System.out.println("Bzzz-zzz");
+                LOGGER.info("Bzzz-zzz");
                 break;
             case MOTOR_TYPE_FUEL:
-                System.out.println("Drin-drin");
+                LOGGER.info("Drin-drin");
                 break;
             case MOTOR_TYPE_UNKNOWN:
             default:
-                System.out.println("**silence**");
+                LOGGER.info("**silence**");
                 break;
         }
     }

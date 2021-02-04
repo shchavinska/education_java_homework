@@ -4,32 +4,38 @@ import ship.Canoe;
 
 import java.util.LinkedList;
 
-public class CanoeToBuy {
+import org.apache.log4j.Logger;
 
-    LinkedList<Canoe> listOfCanoeToBuy = new LinkedList<>();
+public class CanoeToBuy {
+    private final static Logger LOGGER = Logger.getLogger(CanoeToBuy.class);
+
+    LinkedList<Canoe> listOfCanoe = new LinkedList<>();
 
     public void addCanoe(Canoe canoe){
-        listOfCanoeToBuy.add(canoe);
+        listOfCanoe.add(canoe);
     }
 
     public LinkedList<Canoe> getListOfCanoe(){
-        return listOfCanoeToBuy;
+        return listOfCanoe;
     }
 
     public Canoe removeCanoe(String name){
         Canoe canoe1;
-        for (Canoe canoe : listOfCanoeToBuy){
+        for (Canoe canoe : listOfCanoe){
             if (name.equals(canoe.getName())){
                 canoe1 = canoe;
-                listOfCanoeToBuy.remove(canoe);
+                listOfCanoe.remove(canoe);
+                LOGGER.info("Canoe was removed");
                 return  canoe1;
             }
         }
+        LOGGER.warn("Can't remove canoe by name: " + name);
         return null;
     }
 
-    public void printEveryCanoeToBuy() {
-        for (Canoe canoe : listOfCanoeToBuy){
+    public void printEveryCanoe() {
+        LOGGER.info("Printed every canoe to buy");
+        for (Canoe canoe : listOfCanoe){
             canoe.printFields();
         }
     }
